@@ -6,7 +6,7 @@ import {
 } from '@atproto/api'
 import { ThreadViewPost } from '@atproto/api/dist/client/types/app/bsky/feed/defs'
 import { Notification } from '@atproto/api/dist/client/types/app/bsky/notification/listNotifications'
-import { Card, Loading, Text } from '@nextui-org/react'
+import { Avatar, Card, Loading, Text } from '@nextui-org/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -58,6 +58,17 @@ export const NotificationCard: React.VFC<NotificationCardProps> = (props) => {
       {AppBskyFeedLike.isRecord(item.record) && (
         <>
           <Card.Header>
+            <Avatar
+              pointer
+              squared
+              src={
+                item.author.avatar
+                  ? item.author.avatar
+                  : '/images/profileDefaultIcon/kkrn_icon_user_6.svg'
+              }
+              size={'md'}
+              css={{ mr: '$5' }}
+            />
             <Text>
               <Link href={`/profile/${item.author.handle}`}>
                 {item.author.displayName ?? item.author.handle}
@@ -83,6 +94,17 @@ export const NotificationCard: React.VFC<NotificationCardProps> = (props) => {
       {AppBskyFeedPost.isRecord(item.record) && (
         <>
           <Card.Header>
+            <Avatar
+              pointer
+              squared
+              src={
+                item.author.avatar
+                  ? item.author.avatar
+                  : '/images/profileDefaultIcon/kkrn_icon_user_6.svg'
+              }
+              size={'md'}
+              css={{ mr: '$5' }}
+            />
             <Text>
               <Link href={`/profile/${item.author.handle}`}>
                 {item.author.displayName ?? item.author.handle}
@@ -108,6 +130,17 @@ export const NotificationCard: React.VFC<NotificationCardProps> = (props) => {
       {AppBskyGraphFollow.isRecord(item.record) && (
         <>
           <Card.Header>
+            <Avatar
+              pointer
+              squared
+              src={
+                item.author.avatar
+                  ? item.author.avatar
+                  : '/images/profileDefaultIcon/kkrn_icon_user_6.svg'
+              }
+              size={'md'}
+              css={{ mr: '$5' }}
+            />
             <Text>
               <Link href={`/profile/${item.author.handle}`}>
                 {item.author.displayName ?? item.author.handle}
